@@ -1,0 +1,65 @@
+{
+  "evaluation_type": "data_only_analysis",
+  "checkpoint_info": {
+    "status": "failed_to_load"
+  },
+  "data_analysis": {
+    "num_episodes": 10,
+    "avg_episode_length": 230.2,
+    "columns": [
+      "observation.state",
+      "action",
+      "timestamp",
+      "episode_index",
+      "frame_index",
+      "next.reward",
+      "next.done",
+      "index",
+      "task_index"
+    ],
+    "sample_shapes": {
+      "observation.state": [
+        7
+      ],
+      "action": [
+        7
+      ],
+      "timestamp": "scalar <class 'numpy.float32'>",
+      "episode_index": "scalar <class 'numpy.int64'>",
+      "frame_index": "scalar <class 'numpy.int64'>",
+      "next.reward": "scalar <class 'numpy.float32'>",
+      "next.done": "scalar <class 'numpy.bool'>",
+      "index": "scalar <class 'numpy.int64'>",
+      "task_index": "scalar <class 'numpy.int64'>"
+    }
+  },
+  "data_quality": {
+    "completeness": 1.0,
+    "consistency": 0.0,
+    "action_diversity": "0.19818802",
+    "trajectory_complexity": "0.014214017"
+  },
+  "predicted_performance": {
+    "estimated_baseline_success_rate": 0.30019999999999997,
+    "morphology_adaptation_potential": {
+      "5_dof": 0.15019999999999997,
+      "7_dof": 0.30019999999999997,
+      "8_dof": 0.20019999999999996,
+      "scale_08x": 0.2502,
+      "scale_12x": 0.2502
+    },
+    "confidence_level": "low_data_based_estimate"
+  },
+  "morphology_readiness": {
+    "data_structure_compatible": true,
+    "multi_dof_support": "unknown_without_model",
+    "link_scaling_support": "unknown_without_model",
+    "evaluation_framework": "ready",
+    "next_steps": [
+      "Load and validate actual model architecture",
+      "Implement proper model inference pipeline",
+      "Test with different morphology configurations",
+      "Run actual performance evaluation"
+    ]
+  }
+}

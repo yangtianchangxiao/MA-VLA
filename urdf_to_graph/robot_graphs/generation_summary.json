@@ -1,0 +1,112 @@
+{
+  "total_processed": 15,
+  "successful": 10,
+  "failed": 5,
+  "results": [
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/panda/panda_v2.urdf",
+      "robot_name": "panda_v2",
+      "success": true,
+      "nodes": 9,
+      "edges": 6
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/panda/panda_v3.urdf",
+      "robot_name": "panda_v3",
+      "success": false,
+      "nodes": 0,
+      "edges": 0
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/panda/panda_v2_gripper.urdf",
+      "robot_name": "panda_v2_gripper",
+      "success": true,
+      "nodes": 8,
+      "edges": 7
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/panda/mobile_panda_single_arm.urdf",
+      "robot_name": "mobile_panda_single_arm",
+      "success": false,
+      "nodes": 0,
+      "edges": 0
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/panda/mobile_panda_dual_arm.urdf",
+      "robot_name": "mobile_panda_dual_arm",
+      "success": false,
+      "nodes": 0,
+      "edges": 0
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/xarm7/xarm7.urdf",
+      "robot_name": "xarm7",
+      "success": true,
+      "nodes": 7,
+      "edges": 6
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/xarm7/xarm7_ability_right_hand.urdf",
+      "robot_name": "xarm7_ability_right_hand",
+      "success": true,
+      "nodes": 17,
+      "edges": 11
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/allegro/allegro_hand_right.urdf",
+      "robot_name": "allegro_hand_right",
+      "success": true,
+      "nodes": 16,
+      "edges": 12
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/allegro/allegro_hand_right_glb.urdf",
+      "robot_name": "allegro_hand_right_glb",
+      "success": true,
+      "nodes": 16,
+      "edges": 12
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/allegro/allegro_hand_left.urdf",
+      "robot_name": "allegro_hand_left",
+      "success": true,
+      "nodes": 16,
+      "edges": 12
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/allegro/allegro_hand_left_glb.urdf",
+      "robot_name": "allegro_hand_left_glb",
+      "success": true,
+      "nodes": 16,
+      "edges": 12
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/allegro/variation/allegro_hand_right_fsr_glb.urdf",
+      "robot_name": "allegro_hand_right_fsr_glb",
+      "success": true,
+      "nodes": 16,
+      "edges": 12
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/allegro/variation/allegro_hand_right_fsr_simple.urdf",
+      "robot_name": "allegro_hand_right_fsr_simple",
+      "success": false,
+      "nodes": 0,
+      "edges": 0
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/allegro/variation/allegro_hand_right_fsr.urdf",
+      "robot_name": "allegro_hand_right_fsr",
+      "success": true,
+      "nodes": 16,
+      "edges": 12
+    },
+    {
+      "urdf_path": "/home/cx/miniconda3/envs/ms3/lib/python3.10/site-packages/mani_skill/assets/robots/trifinger/cube_multicolor_rrc.urdf",
+      "robot_name": "cube_multicolor_rrc",
+      "success": false,
+      "nodes": 0,
+      "edges": 0
+    }
+  ]
+}

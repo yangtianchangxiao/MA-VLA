@@ -1,0 +1,19 @@
+{
+  "transformation_type": "dof_modification",
+  "total_variations": 417,
+  "source_dataset": "/home/cx/AET_FOR_RL/vla/original_data/droid_100",
+  "generation_params": {
+    "supported_dofs": [
+      5,
+      6,
+      8,
+      9
+    ],
+    "original_dof": 7,
+    "mapping_strategies": [
+      "reduction",
+      "expansion"
+    ],
+    "validation_method": "custom_dof_validation"
+  }
+}

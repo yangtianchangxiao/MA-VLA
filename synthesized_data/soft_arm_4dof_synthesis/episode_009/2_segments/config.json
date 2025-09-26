@@ -1,0 +1,22 @@
+{
+  "episode_id": 9,
+  "n_segments": 2,
+  "segment_lengths": [
+    0.57,
+    0.57
+  ],
+  "total_length": 1.14,
+  "base_offset": [
+    -0.15984651446342468,
+    0.19326937198638916,
+    0.0
+  ],
+  "constraint_type": "4DOF_relaxed",
+  "success_threshold": 0.7,
+  "synthesis_params": {
+    "success_rate": 1.0,
+    "temporal_smoothness": 0.009940116230436969,
+    "original_trajectory_length": 360,
+    "synthesized_trajectory_length": 360
+  }
+}

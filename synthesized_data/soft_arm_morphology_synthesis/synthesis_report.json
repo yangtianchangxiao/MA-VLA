@@ -1,0 +1,38 @@
+{
+  "overall_statistics": {
+    "total_trajectories_processed": 46,
+    "total_configurations_generated": 184,
+    "successful_configurations": 168,
+    "overall_success_rate": 0.9130434782608695,
+    "total_synthesis_time_seconds": 1831.9287798404694,
+    "avg_synthesis_time_per_config": 9.956134673046028
+  },
+  "per_segment_stats": {
+    "2_segments": {
+      "count": 46,
+      "success_rate": 0.8478260869565217,
+      "success_count": 39
+    },
+    "3_segments": {
+      "count": 46,
+      "success_rate": 0.8043478260869565,
+      "success_count": 37
+    },
+    "4_segments": {
+      "count": 46,
+      "success_rate": 1.0,
+      "success_count": 46
+    },
+    "5_segments": {
+      "count": 46,
+      "success_rate": 1.0,
+      "success_count": 46
+    }
+  },
+  "quality_metrics": {
+    "avg_position_accuracy": 1e-06,
+    "expected_temporal_smoothness": 0.0054,
+    "workspace_coverage_target": 0.95
+  },
+  "failed_episodes": []
+}

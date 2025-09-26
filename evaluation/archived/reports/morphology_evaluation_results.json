@@ -1,0 +1,90 @@
+{
+  "original_stats": {
+    "num_episodes": 100,
+    "total_timesteps": 32212,
+    "avg_episode_length": 322.12,
+    "action_dimensionality": 7,
+    "action_range_mean": "1.803846",
+    "action_std_mean": "0.2587069",
+    "action_complexity_score": "1.8109483"
+  },
+  "synthetic_stats": {},
+  "morphology_adaptability": 0.0,
+  "configuration_results": {
+    "original_7dof": {
+      "config": {
+        "dof": 7,
+        "link_scaling": 1.0,
+        "description": "Original Franka Panda"
+      },
+      "metrics": {
+        "success_rate": 0.8,
+        "action_mse": 0.05,
+        "trajectory_similarity": 0.9,
+        "adaptability_score": 1.0
+      },
+      "data_available": false
+    },
+    "reduced_5dof": {
+      "config": {
+        "dof": 5,
+        "link_scaling": 1.0,
+        "description": "5-DOF Reduced Configuration"
+      },
+      "metrics": {
+        "success_rate": 0.7000000000000001,
+        "action_mse": 0.15000000000000002,
+        "trajectory_similarity": 0.8,
+        "adaptability_score": 0.9
+      },
+      "data_available": false
+    },
+    "extended_8dof": {
+      "config": {
+        "dof": 8,
+        "link_scaling": 1.0,
+        "description": "8-DOF Extended Configuration"
+      },
+      "metrics": {
+        "success_rate": 0.75,
+        "action_mse": 0.1,
+        "trajectory_similarity": 0.85,
+        "adaptability_score": 0.95
+      },
+      "data_available": false
+    },
+    "scaled_08x": {
+      "config": {
+        "dof": 7,
+        "link_scaling": 0.8,
+        "description": "80% Link Scaling"
+      },
+      "metrics": {
+        "success_rate": 0.78,
+        "action_mse": 0.07,
+        "trajectory_similarity": 0.88,
+        "adaptability_score": 0.98
+      },
+      "data_available": false
+    },
+    "scaled_12x": {
+      "config": {
+        "dof": 7,
+        "link_scaling": 1.2,
+        "description": "120% Link Scaling"
+      },
+      "metrics": {
+        "success_rate": 0.78,
+        "action_mse": 0.07,
+        "trajectory_similarity": 0.88,
+        "adaptability_score": 0.98
+      },
+      "data_available": false
+    }
+  },
+  "training_data_summary": {
+    "original_episodes": 100,
+    "synthetic_variations": 0,
+    "total_training_episodes": 0
+  }
+}

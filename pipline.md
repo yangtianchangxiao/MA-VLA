@@ -1,0 +1,1 @@
+第一步：使用 train/prepare_vla_data.sh，以是否具有完整的任务描述为条件，从原始的 droid 的数据集中区分出有效episode，保存有效episdoe的 index与task description在 train_data中，与此同时该脚本会提取

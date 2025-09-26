@@ -1,0 +1,26 @@
+{
+  "original_episodes": 2,
+  "total_synthesized_episodes": 10,
+  "total_timesteps": 2242,
+  "robots_used": [
+    "franka_panda_7dof"
+  ],
+  "augmentation_multiplier": 5.0,
+  "length_distribution": {
+    "min_length": 160,
+    "max_length": 295,
+    "avg_length": 224.2,
+    "scale_factors": [
+      1.0,
+      1.2289156626506024,
+      1.355421686746988,
+      1.0963855421686748,
+      0.963855421686747,
+      1.0,
+      1.2394957983193278,
+      1.1218487394957983,
+      1.2058823529411764,
+      0.9159663865546218
+    ]
+  }
+}

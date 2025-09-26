@@ -1,0 +1,14 @@
+{
+  "total_soft_arms": 0,
+  "total_timesteps": 0,
+  "total_episodes": 0,
+  "synthesis_time": 81.23539900779724,
+  "soft_arms_per_original_episode": 0.0,
+  "average_success_rate": 0.0,
+  "segment_distribution": {
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0
+  }
+}

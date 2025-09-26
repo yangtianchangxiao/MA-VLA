@@ -1,0 +1,8 @@
+{
+  "total_robots": 10,
+  "total_timesteps": 2009,
+  "total_episodes": 10,
+  "synthesis_time": 16.057112216949463,
+  "robots_per_original_episode": 5.0,
+  "average_success_rate": 0.9800000000000001
+}

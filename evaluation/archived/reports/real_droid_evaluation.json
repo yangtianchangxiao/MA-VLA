@@ -1,0 +1,33 @@
+{
+  "morphology_results": {
+    "7-DOF_Original": {
+      "mse_mean": "0.12230639",
+      "mse_std": "0.01619343",
+      "mae_mean": "0.2506195",
+      "similarity_mean": "0.20571725",
+      "num_successful": 10,
+      "num_episodes": 10
+    },
+    "5-DOF_Reduced": {
+      "mse_mean": "0.051305164",
+      "mse_std": "0.01877654",
+      "mae_mean": "0.16952427",
+      "similarity_mean": "-0.04772261",
+      "num_successful": 10,
+      "num_episodes": 10
+    },
+    "8-DOF_Extended": {
+      "mse_mean": 0,
+      "mse_std": 0,
+      "mae_mean": 0,
+      "similarity_mean": 0,
+      "num_successful": 0,
+      "num_episodes": 10
+    }
+  },
+  "overall_metrics": {
+    "avg_mse": 0.057870518416166306,
+    "avg_similarity": 0.05266487970948219,
+    "adaptability_score": 0.9522478857103586
+  }
+}

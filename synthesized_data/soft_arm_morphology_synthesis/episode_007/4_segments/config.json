@@ -1,0 +1,48 @@
+{
+  "episode_id": 7,
+  "n_segments": 4,
+  "segment_lengths": [
+    0.3887685644359703,
+    0.4066136344688417,
+    0.4344138177357749,
+    0.43128401342415296
+  ],
+  "total_length": 1.66108003006474,
+  "base_offset": [
+    -0.11596384644508362,
+    0.0005119367269799113,
+    0.0
+  ],
+  "workspace_bounds": {
+    "x_range": [
+      -1.0,
+      1.0
+    ],
+    "y_range": [
+      -1.0,
+      1.0
+    ],
+    "z_range": [
+      0.0,
+      1.66108003006474
+    ]
+  },
+  "alpha_limits": [
+    0.001,
+    3.14159
+  ],
+  "beta_limits": [
+    0.0,
+    6.28318
+  ],
+  "synthesis_params": {
+    "success_rate": 1.0,
+    "avg_position_error": 1e-06,
+    "avg_temporal_smoothness": 0.003791174339791,
+    "synthesis_time": 1758718626.2813606
+  },
+  "original_trajectory_length": 596,
+  "synthesized_trajectory_length": 596,
+  "creation_timestamp": "2025-09-24T20:57:06Z",
+  "version": "1.0"
+}

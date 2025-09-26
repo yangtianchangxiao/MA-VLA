@@ -1,0 +1,6 @@
+{
+  "morphology_type": "link_scaling",
+  "total_graphs": 460,
+  "trajectory_file": "/home/cx/AET_FOR_RL/vla/synthesized_data/droid_100_morphology/link_scaling_cartesian/trajectory_data.parquet",
+  "buffer_size_used": 100
+}

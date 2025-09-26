@@ -1,0 +1,130 @@
+{
+  "robot_name": "xarm7",
+  "num_joints": 7,
+  "num_edges": 6,
+  "joints": [
+    {
+      "id": 0,
+      "name": "joint1",
+      "type": "revolute",
+      "parent_link": "link_base",
+      "child_link": "link1",
+      "limits": {
+        "lower": -6.28318530718,
+        "upper": 6.28318530718,
+        "velocity": 3.14,
+        "effort": 50.0
+      }
+    },
+    {
+      "id": 1,
+      "name": "joint2",
+      "type": "revolute",
+      "parent_link": "link1",
+      "child_link": "link2",
+      "limits": {
+        "lower": -2.059,
+        "upper": 2.0944,
+        "velocity": 3.14,
+        "effort": 50.0
+      }
+    },
+    {
+      "id": 2,
+      "name": "joint3",
+      "type": "revolute",
+      "parent_link": "link2",
+      "child_link": "link3",
+      "limits": {
+        "lower": -6.28318530718,
+        "upper": 6.28318530718,
+        "velocity": 3.14,
+        "effort": 30.0
+      }
+    },
+    {
+      "id": 3,
+      "name": "joint4",
+      "type": "revolute",
+      "parent_link": "link3",
+      "child_link": "link4",
+      "limits": {
+        "lower": -0.19198,
+        "upper": 3.927,
+        "velocity": 3.14,
+        "effort": 30.0
+      }
+    },
+    {
+      "id": 4,
+      "name": "joint5",
+      "type": "revolute",
+      "parent_link": "link4",
+      "child_link": "link5",
+      "limits": {
+        "lower": -6.28318530718,
+        "upper": 6.28318530718,
+        "velocity": 3.14,
+        "effort": 30.0
+      }
+    },
+    {
+      "id": 5,
+      "name": "joint6",
+      "type": "revolute",
+      "parent_link": "link5",
+      "child_link": "link6",
+      "limits": {
+        "lower": -1.69297,
+        "upper": 3.14159265359,
+        "velocity": 3.14,
+        "effort": 20.0
+      }
+    },
+    {
+      "id": 6,
+      "name": "joint7",
+      "type": "revolute",
+      "parent_link": "link6",
+      "child_link": "link7",
+      "limits": {
+        "lower": -6.28318530718,
+        "upper": 6.28318530718,
+        "velocity": 3.14,
+        "effort": 20.0
+      }
+    }
+  ],
+  "edges": [
+    {
+      "parent": 0,
+      "child": 1,
+      "via_link": "link1"
+    },
+    {
+      "parent": 1,
+      "child": 2,
+      "via_link": "link2"
+    },
+    {
+      "parent": 2,
+      "child": 3,
+      "via_link": "link3"
+    },
+    {
+      "parent": 3,
+      "child": 4,
+      "via_link": "link4"
+    },
+    {
+      "parent": 4,
+      "child": 5,
+      "via_link": "link5"
+    },
+    {
+      "parent": 5,
+      "child": 6,
+      "via_link": "link6"
+    }
+  ]
+}

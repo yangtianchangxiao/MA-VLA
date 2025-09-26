@@ -1,0 +1,11 @@
+Requirement already satisfied: networkx in /home/cx/miniconda3/envs/AET_FOR_RL/lib/python3.12/site-packages (2.2)
+Collecting networkx
+  Downloading networkx-3.5-py3-none-any.whl.metadata (6.3 kB)
+Downloading networkx-3.5-py3-none-any.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 3.0 MB/s eta 0:00:00
+Installing collected packages: networkx
+  Attempting uninstall: networkx
+    Found existing installation: networkx 2.2
+    Uninstalling networkx-2.2:
+      Successfully uninstalled networkx-2.2
+Successfully installed networkx-3.5

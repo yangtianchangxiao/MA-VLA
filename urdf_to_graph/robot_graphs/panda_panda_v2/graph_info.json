@@ -1,0 +1,156 @@
+{
+  "robot_name": "panda",
+  "num_joints": 9,
+  "num_edges": 6,
+  "joints": [
+    {
+      "id": 0,
+      "name": "panda_joint1",
+      "type": "revolute",
+      "parent_link": "panda_link0",
+      "child_link": "panda_link1",
+      "limits": {
+        "lower": -2.8973,
+        "upper": 2.8973,
+        "velocity": 2.175,
+        "effort": 87.0
+      }
+    },
+    {
+      "id": 1,
+      "name": "panda_joint2",
+      "type": "revolute",
+      "parent_link": "panda_link1",
+      "child_link": "panda_link2",
+      "limits": {
+        "lower": -1.7628,
+        "upper": 1.7628,
+        "velocity": 2.175,
+        "effort": 87.0
+      }
+    },
+    {
+      "id": 2,
+      "name": "panda_joint3",
+      "type": "revolute",
+      "parent_link": "panda_link2",
+      "child_link": "panda_link3",
+      "limits": {
+        "lower": -2.8973,
+        "upper": 2.8973,
+        "velocity": 2.175,
+        "effort": 87.0
+      }
+    },
+    {
+      "id": 3,
+      "name": "panda_joint4",
+      "type": "revolute",
+      "parent_link": "panda_link3",
+      "child_link": "panda_link4",
+      "limits": {
+        "lower": -3.0718,
+        "upper": -0.0698,
+        "velocity": 2.175,
+        "effort": 87.0
+      }
+    },
+    {
+      "id": 4,
+      "name": "panda_joint5",
+      "type": "revolute",
+      "parent_link": "panda_link4",
+      "child_link": "panda_link5",
+      "limits": {
+        "lower": -2.8973,
+        "upper": 2.8973,
+        "velocity": 2.61,
+        "effort": 12.0
+      }
+    },
+    {
+      "id": 5,
+      "name": "panda_joint6",
+      "type": "revolute",
+      "parent_link": "panda_link5",
+      "child_link": "panda_link6",
+      "limits": {
+        "lower": -0.0175,
+        "upper": 3.7525,
+        "velocity": 2.61,
+        "effort": 12.0
+      }
+    },
+    {
+      "id": 6,
+      "name": "panda_joint7",
+      "type": "revolute",
+      "parent_link": "panda_link6",
+      "child_link": "panda_link7",
+      "limits": {
+        "lower": -2.8973,
+        "upper": 2.8973,
+        "velocity": 2.61,
+        "effort": 12.0
+      }
+    },
+    {
+      "id": 7,
+      "name": "panda_finger_joint1",
+      "type": "prismatic",
+      "parent_link": "panda_hand",
+      "child_link": "panda_leftfinger",
+      "limits": {
+        "lower": 0.0,
+        "upper": 0.04,
+        "velocity": 0.2,
+        "effort": 100.0
+      }
+    },
+    {
+      "id": 8,
+      "name": "panda_finger_joint2",
+      "type": "prismatic",
+      "parent_link": "panda_hand",
+      "child_link": "panda_rightfinger",
+      "limits": {
+        "lower": 0.0,
+        "upper": 0.04,
+        "velocity": 0.2,
+        "effort": 100.0
+      }
+    }
+  ],
+  "edges": [
+    {
+      "parent": 0,
+      "child": 1,
+      "via_link": "panda_link1"
+    },
+    {
+      "parent": 1,
+      "child": 2,
+      "via_link": "panda_link2"
+    },
+    {
+      "parent": 2,
+      "child": 3,
+      "via_link": "panda_link3"
+    },
+    {
+      "parent": 3,
+      "child": 4,
+      "via_link": "panda_link4"
+    },
+    {
+      "parent": 4,
+      "child": 5,
+      "via_link": "panda_link5"
+    },
+    {
+      "parent": 5,
+      "child": 6,
+      "via_link": "panda_link6"
+    }
+  ]
+}

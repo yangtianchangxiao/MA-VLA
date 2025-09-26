@@ -1,0 +1,23 @@
+{
+  "episode_id": 12,
+  "n_segments": 3,
+  "segment_lengths": [
+    0.37,
+    0.4,
+    0.37
+  ],
+  "total_length": 1.1400000000000001,
+  "base_offset": [
+    -0.07990962266921997,
+    -0.04917705059051514,
+    0.0
+  ],
+  "constraint_type": "4DOF_relaxed",
+  "success_threshold": 0.7,
+  "synthesis_params": {
+    "success_rate": 1.0,
+    "temporal_smoothness": 0.009486195861884827,
+    "original_trajectory_length": 214,
+    "synthesized_trajectory_length": 214
+  }
+}

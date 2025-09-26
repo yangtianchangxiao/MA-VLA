@@ -1,0 +1,49 @@
+# VLA项目 - 排除大数据和模型文件
+
+# 大数据集目录
+original_data/
+converted_data/
+extracted_data/
+valid_original_data/
+data/
+datasets/
+morphology_data/
+archive/
+
+# 大模型文件
+参考模型/**/*.bin
+参考模型/**/*.pt
+参考模型/**/*.pth
+参考模型/**/*.safetensors
+参考模型/**/*.ckpt
+参考模型/**/*.model
+
+# openpi_soft_arm_training中的大文件
+openpi_soft_arm_training/.venv/
+openpi_soft_arm_training/checkpoints/
+openpi_soft_arm_training/debug_checkpoints/
+openpi_soft_arm_training/data/raw/
+openpi_soft_arm_training/data/cache/
+
+# 训练输出目录
+logs/
+runs/
+wandb/
+outputs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 环境相关
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS文件
+.DS_Store
+Thumbs.db

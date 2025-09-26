@@ -1,0 +1,6 @@
+{
+  "morphology_type": "dof_modification",
+  "total_graphs": 460,
+  "trajectory_file": "/home/cx/AET_FOR_RL/vla/synthesized_data/droid_100_morphology/dof_modification_streaming/trajectory_data.parquet",
+  "buffer_size_used": 100
+}

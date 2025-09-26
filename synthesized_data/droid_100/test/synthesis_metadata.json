@@ -1,0 +1,15 @@
+{
+  "total_variations": 3,
+  "source_dataset": "/home/cx/AET_FOR_RL/vla/original_data/droid_100",
+  "generation_params": {
+    "link_scale_range": [
+      0.8,
+      1.2
+    ],
+    "base_position_method": "IK_calculated",
+    "base_orientation_method": "fixed_unchanged",
+    "constraint_principle": "preserve_end_effector_trajectory",
+    "filtering_method": "DROID_adaptive",
+    "filter_description": "Learned from DROID data statistics (99-percentile limits)"
+  }
+}

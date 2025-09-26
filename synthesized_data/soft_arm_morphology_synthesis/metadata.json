@@ -1,0 +1,32 @@
+{
+  "dataset_name": "soft_arm_morphology_synthesis",
+  "version": "1.0",
+  "creation_date": "2025-09-24",
+  "total_episodes": 46,
+  "segments_variants": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "total_configurations": 184,
+  "successful_configurations": 168,
+  "base_segment_length": 0.4,
+  "length_variation_range": [
+    0.9,
+    1.1
+  ],
+  "final_length_clamp": [
+    0.15,
+    0.5
+  ],
+  "success_rate_threshold": 0.95,
+  "temporal_smoothness_threshold": 0.01,
+  "source_dataset": "DROID-100",
+  "synthesis_settings": {
+    "ik_solver": "hierarchical_optimization",
+    "max_iterations": 100,
+    "position_tolerance": 0.05,
+    "workspace_margin": 1.3
+  }
+}
