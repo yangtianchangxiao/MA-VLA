@@ -1,0 +1,151 @@
+# 调试配置 - 快速测试用
+# 基于主配置的简化版本
+
+# 实验配置
+experiment:
+  name: "soft_arm_debug"
+  description: "调试模式 - 快速验证训练流程"
+  version: "debug"
+
+# 模型配置
+model:
+  type: "SoftArmGraphVLA"
+  pretrained_checkpoint: null  # 不加载预训练权重
+
+  # 动作预测
+  action_chunk_size: 8  # 减少到8步
+  max_dof: 10
+  predict_horizon: 8
+
+  # 图神经网络
+  graph:
+    input_dim: 19
+    hidden_dim: 32  # 减少隐藏层
+    output_dim: 32
+    num_layers: 2   # 减少层数
+    enabled: true
+
+  # VLM backbone
+  vlm:
+    feature_dim: 768
+    use_pretrained: true
+
+  # Flow Matching
+  flow_matching:
+    num_steps: 5    # 减少步数
+    noise_schedule: "cosine"
+    ode_solver: "euler"
+
+# 数据配置
+data:
+  processed_dir: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/data/processed"
+  image_size: [224, 224]
+
+  # 训练数据
+  train_episodes: 106
+  val_episodes: 20
+  sequence_length: 298
+
+  # 批处理 - 调试用小批量
+  batch_size: 1  # 极小批量
+  num_workers: 1
+  pin_memory: false
+
+  # 数据增强
+  augmentation:
+    random_crop: false
+    color_jitter: false  # 关闭增强加速
+    normalize: true
+
+# 训练配置
+training:
+  # 基本设置 - 调试用短训练
+  num_epochs: 1
+  max_steps: 100     # 只训练100步
+  save_interval: 50  # 频繁保存
+  eval_interval: 25  # 频繁评估
+  log_interval: 10   # 频繁日志
+
+  # 优化器
+  optimizer:
+    type: "AdamW"
+    lr: 5e-5        # 较小学习率
+    weight_decay: 1e-6  # 较小正则化
+    betas: [0.9, 0.95]
+
+  # 学习率调度
+  scheduler:
+    type: "CosineAnnealingLR"
+    T_max: 100
+    eta_min: 1e-7
+
+  # 梯度
+  grad_clip_norm: 0.5  # 较严格的梯度裁剪
+  gradient_accumulation_steps: 1
+
+  # 混合精度
+  use_amp: false  # 关闭AMP避免调试问题
+  amp_dtype: "float32"
+
+  # 正则化
+  dropout_rate: 0.0  # 关闭dropout
+  layer_norm_eps: 1e-6
+
+# 损失配置
+loss:
+  flow_matching_weight: 1.0
+  mse_weight: 0.0      # 关闭辅助损失
+  smoothness_weight: 0.0
+  fk_weight: 0.0
+  position_weight: 1.0
+  orientation_weight: 0.5
+
+# 评估配置
+evaluation:
+  batch_size: 1
+  metrics:
+    - "action_mse"
+
+  soft_arm_metrics:
+    position_error_threshold: 0.05
+    orientation_error_threshold: 0.5
+    evaluate_by_segments: false  # 简化评估
+    evaluate_by_constraint: false
+
+# 分布式训练配置
+distributed:
+  backend: "nccl"
+  world_size: 1  # 单GPU
+  find_unused_parameters: true
+
+# 硬件配置
+hardware:
+  device: "cuda"
+  num_gpus: 1  # 调试用单GPU
+  gpu_memory_limit: null
+  cpu_threads: 4
+
+# 输出配置
+output:
+  checkpoint_dir: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/debug_checkpoints"
+  log_dir: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/debug_logs"
+  save_best: true
+  save_latest: true
+  keep_top_k: 2  # 只保留2个checkpoint
+
+# 日志配置
+logging:
+  use_wandb: false  # 关闭wandb
+  wandb_project: "soft-arm-debug"
+  log_gradients: false
+  log_activations: false
+  log_images: false
+  log_videos: false
+  log_trajectory_plots: false
+
+# 调试配置
+debug:
+  debug_mode: true   # 启用调试模式
+  profile_training: false
+  detect_anomaly: true  # 启用异常检测
+  log_device_placement: true

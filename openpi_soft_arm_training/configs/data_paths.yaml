@@ -1,0 +1,63 @@
+# 数据路径配置
+# 所有路径都是绝对路径，避免混乱
+
+# 原始数据源
+raw_data:
+  # 软体臂合成数据
+  soft_arm_3dof: "/home/cx/AET_FOR_RL/vla/synthesized_data/soft_arm_morphology_synthesis"
+  soft_arm_4dof: "/home/cx/AET_FOR_RL/vla/synthesized_data/soft_arm_4dof_synthesis"
+
+  # DROID图像数据
+  droid_images: "/home/cx/AET_FOR_RL/vla/valid_original_data/droid_100/extracted_images"
+
+  # 机器人图数据
+  robot_graphs: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/data/robot_graphs"
+
+# 处理后数据存放
+processed_data:
+  # 本项目内部数据目录
+  root: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/data"
+
+  # 预处理后的统一数据
+  unified_episodes: "processed/unified_episodes.h5"
+  image_cache: "processed/image_cache"
+  graph_cache: "processed/graph_cache.pkl"
+
+  # 训练数据分割
+  train_split: "processed/train_episodes.json"
+  val_split: "processed/val_episodes.json"
+
+# OpenPi相关
+openpi:
+  # OpenPi源码路径
+  source_dir: "/home/cx/AET_FOR_RL/vla/参考模型/openpi"
+
+  # 预训练模型缓存
+  model_cache: "~/.cache/openpi"
+  pretrained_checkpoint: "~/.cache/openpi/checkpoints/pi05_droid"
+
+# 输出路径
+outputs:
+  # 检查点保存
+  checkpoints: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/checkpoints"
+
+  # 训练日志
+  logs: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/logs"
+
+  # 评估结果
+  evaluation: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/outputs"
+
+# 数据统计（已知信息）
+statistics:
+  total_episodes: 37557
+  episode_length_avg: 166
+  action_chunk_size: 16
+
+  # 不同形态的数据量
+  morphologies:
+    "2_segments": {episodes: ~7000, dof: 4}
+    "3_segments": {episodes: ~12000, dof: 6}
+    "4_segments": {episodes: ~12000, dof: 8}
+    "5_segments": {episodes: ~6557, dof: 10}
+
+  constraint_types: ["3DOF", "4DOF"]

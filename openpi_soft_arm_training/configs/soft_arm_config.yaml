@@ -1,0 +1,162 @@
+# 软体臂Graph-based VLA训练配置
+
+# 实验配置
+experiment:
+  name: "soft_arm_graph_vla"
+  description: "Graph-based VLA for soft continuum arms with Flow Matching"
+  version: "v1.0"
+
+# 模型配置
+model:
+  # 基础配置
+  type: "SoftArmGraphVLA"
+  pretrained_checkpoint: "~/.cache/openpi/checkpoints/pi05_droid"
+
+  # 动作预测
+  action_chunk_size: 16
+  max_dof: 10
+  predict_horizon: 16
+
+  # 图神经网络
+  graph:
+    input_dim: 19
+    hidden_dim: 64
+    output_dim: 32
+    num_layers: 3
+
+  # VLM backbone
+  vlm:
+    feature_dim: 768
+    use_pretrained: true
+
+  # Flow Matching
+  flow_matching:
+    num_steps: 10
+    noise_schedule: "cosine"
+    ode_solver: "euler"
+
+# 数据配置
+data:
+  # 数据路径
+  processed_dir: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/data/processed"
+  image_size: [224, 224]
+
+  # 训练数据
+  train_episodes: 106
+  val_episodes: 20
+  sequence_length: 298  # 平均长度
+
+  # 批处理
+  batch_size: 4  # 每GPU批量大小
+  num_workers: 4
+  pin_memory: true
+
+  # 数据增强
+  augmentation:
+    random_crop: false  # 机器人数据不适合随机裁剪
+    color_jitter: true
+    normalize: true
+
+# 训练配置
+training:
+  # 基本设置
+  num_epochs: 20
+  max_steps: 50000
+  save_interval: 1000
+  eval_interval: 500
+  log_interval: 100
+
+  # 优化器
+  optimizer:
+    type: "AdamW"
+    lr: 1e-4
+    weight_decay: 1e-5
+    betas: [0.9, 0.95]
+
+  # 学习率调度
+  scheduler:
+    type: "CosineAnnealingLR"
+    T_max: 50000
+    eta_min: 1e-6
+
+  # 梯度
+  grad_clip_norm: 1.0
+  gradient_accumulation_steps: 1
+
+  # 混合精度
+  use_amp: true
+  amp_dtype: "bfloat16"
+
+  # 正则化
+  dropout_rate: 0.1
+  layer_norm_eps: 1e-6
+
+# 损失配置
+loss:
+  # 主要损失
+  flow_matching_weight: 1.0
+
+  # 辅助损失
+  mse_weight: 0.1  # MSE正则化
+  smoothness_weight: 0.01  # 时间平滑性
+
+  # Forward Kinematics约束 (如果需要)
+  fk_weight: 0.1
+  position_weight: 1.0
+  orientation_weight: 0.5
+
+# 评估配置
+evaluation:
+  batch_size: 2
+  metrics:
+    - "action_mse"
+    - "action_l1"
+    - "temporal_smoothness"
+    - "position_accuracy"
+
+  # 软体臂专用评估
+  soft_arm_metrics:
+    position_error_threshold: 0.05  # 5cm
+    orientation_error_threshold: 0.5  # cos similarity
+    evaluate_by_segments: true
+    evaluate_by_constraint: true
+
+# 分布式训练配置
+distributed:
+  backend: "nccl"
+  world_size: 8
+  find_unused_parameters: true
+
+# 硬件配置
+hardware:
+  device: "cuda"
+  num_gpus: 8
+  gpu_memory_limit: null
+  cpu_threads: 32
+
+# 输出配置
+output:
+  checkpoint_dir: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/checkpoints"
+  log_dir: "/home/cx/AET_FOR_RL/vla/openpi_soft_arm_training/logs"
+  save_best: true
+  save_latest: true
+  keep_top_k: 5
+
+# 日志配置
+logging:
+  use_wandb: false  # 关闭wandb避免配置问题
+  wandb_project: "soft-arm-graph-vla"
+  log_gradients: false
+  log_activations: false
+
+  # 可视化
+  log_images: true
+  log_videos: false
+  log_trajectory_plots: true
+
+# 调试配置
+debug:
+  debug_mode: false
+  profile_training: false
+  detect_anomaly: false
+  log_device_placement: false
