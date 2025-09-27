@@ -1,0 +1,116 @@
+exp_name: morphology_synthesis_exp
+trainer_type: RynnVLAActionPredictionTrainer
+seed: 180271
+
+# Training configs - Optimized for morphology synthesis data
+model_parallel_size: 1
+checkpointing: True
+batch_size: 8  # Increased from 4 for better stability with diverse morphologies
+accum_iter: 2  # Gradient accumulation to simulate larger batch
+epochs: 50     # Reduced from 1000 for initial morphology training
+warmup_epochs: 0.02  # 2% warmup for better convergence
+lr: !!float 1e-4   # Slightly higher LR for morphology adaptation
+min_lr: !!float 1e-6
+wd: 0.1
+clip_grad: 2   # Lower grad clipping for morphology diversity
+num_workers: 8
+pin_mem: True
+save_iteration_interval: 500  # More frequent saves for monitoring
+auto_resume: True
+data_parallel: fsdp
+precision: bf16
+grad_precision: fp32
+checkpointing: True
+model_size: 7B
+max_seq_len: 16384
+mask_image_logits: False
+dropout: 0.1   # Higher dropout for morphology generalization
+z_loss_weight: !!float 1e-5
+condition_frame_num: 1
+ckpt_max_keep: 10  # Keep more checkpoints for analysis
+use_wrist_frame: True
+
+init_from: ./pretrained_models/RynnVLA-001-7B-Base
+resume_path: ~
+load_pretrain: True
+
+# Morphology-specific settings
+gripper_as_condition: False
+language_instruction_per_frame: True
+repeat_lang_tokens: 1
+language_first: True
+predict_actions_forward: False
+action_head_type: 'one_layer'
+replace_inputs_with_action: False
+is_rel_act: True
+action_chunk_size: 20
+action_dim: 7  # Variable based on morphology, handled by dataset
+
+# Morphology synthesis dataset configuration
+train_dataset:
+  type: 'MorphologyVideoDataset'  # Custom dataset for morphology variations
+  data_path: /home/cx/AET_FOR_RL/vla/training_data/merged_training_stats.json
+  batch_size: 8
+  num_workers: 8
+  pin_memory: True
+  img_size: 384
+  image_mean: [0.5, 0.5, 0.5]
+  image_std: [0.5, 0.5, 0.5]
+  aug_cfg: ~
+  is_train: True
+  frame_interval: 3
+  num_frames: 4
+  normalize: True
+  chunk_size: 20
+  num_chunks_forward: 0
+  min_max_norm: False
+  mean_std_norm: True
+  use_rel_action: True
+  
+  # Morphology-specific dataset settings
+  morphology_aware: True
+  dof_variation_support: True
+  link_scaling_support: True
+  original_droid_path: /home/cx/AET_FOR_RL/vla/original_data/droid_100
+  
+# Morphology adaptation VAE config
+actionvae_config:
+  num_queries: 20
+  state_dim: 9  # Max DOF to support all variations
+  
+  hidden_dim: 512
+  dim_feedforward: 3200
+  backbone: 'resnet18'
+  enc_layers: 4
+  dec_layers: 7
+  nheads: 8
+  position_embedding: 'sine'
+  masks: False
+  dilation: False
+  dropout: 0.1
+  pre_norm: False
+  camera_names: ['front_camera', 'wrist_camera']  # DROID-100 camera setup
+
+actionvae_pretrained_path: ./pretrained_models/actionvae_morphology.pth
+
+# Morphology training specific parameters
+morphology_training:
+  enable_dof_adaptation: True
+  enable_link_scaling_adaptation: True
+  morphology_embedding_dim: 64
+  use_morphology_conditioning: True
+  morphology_loss_weight: 0.1
+
+# Evaluation settings
+eval_interval: 1000
+eval_save_images: True
+eval_morphology_types: ['dof_modification', 'link_scaling']
+
+# Logging and monitoring
+wandb:
+  project: "VLA-Morphology-Synthesis"
+  name: "morphology_exp_1860_episodes"
+  tags: ["droid100", "morphology", "synthesis", "vla"]
+  
+tensorboard_dir: "./runs/morphology_synthesis"
+log_interval: 100
